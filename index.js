@@ -7,7 +7,8 @@ if (port == null || port == "") {
 
 const io  = new Server(port, {
     cors: {
-        origin: "http://127.0.0.1:5500"
+        // origin: "http://127.0.0.1:5500"
+        origin: "https://mechatfront.onrender.com"
     }
 });
 
@@ -25,6 +26,6 @@ io.on('connection', socket=>{
 
     socket.on('disconnect', message=>{
         socket.broadcast.emit('leave', users[socket.id]);
-        delete users[socket.id]
+        delete users[socket.id];
     })
 })
